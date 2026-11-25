@@ -3,6 +3,16 @@
 > Built for the **#BuildHybridAI 2026** Hackathon  
 > Powered by **Firebase AI Logic** (`InferenceMode.PREFER_ON_DEVICE`), **App Check**, and **Remote Config**.
 
+[![Demo Video](https://img.shields.io/badge/Demo%20Video-Full%201080p%20MP4-blue?logo=youtube)](./DevShield_Demo_Video_1080p.mp4)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](./LICENSE)
+
+---
+
+## 🎬 Demo Video
+
+The official demo video showcasing DevShield's zero-egress local scanning, visual diff inspector, compliance reporter, and cloud test generator is included in the repo:
+- **Direct Video File**: [DevShield_Demo_Video_1080p.mp4](./DevShield_Demo_Video_1080p.mp4) (77s Full HD 1080p with voice narration)
+
 ---
 
 ## Overview & Value Proposition
