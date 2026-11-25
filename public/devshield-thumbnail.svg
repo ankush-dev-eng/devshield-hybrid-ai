@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <!-- Glow & Shadow Filters -->
+    <filter id="thumb-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="shield-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040714" />
+      <stop offset="50%" stop-color="#02040a" />
+      <stop offset="100%" stop-color="#050a18" />
+    </linearGradient>
+
+    <linearGradient id="accent-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5df0a8" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e172e" />
+      <stop offset="50%" stop-color="#050817" />
+      <stop offset="100%" stop-color="#02040a" />
+    </linearGradient>
+
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5df0a8" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style>
+    .font-sans { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-display { font-family: 'Space Grotesk', -apple-system, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="800" fill="url(#bg-grad)" />
+  <rect width="1200" height="800" fill="url(#grid)" />
+
+  <!-- Ambient Glowing Radial Halos -->
+  <circle cx="320" cy="400" r="280" fill="#10b981" opacity="0.12" filter="url(#thumb-glow)" />
+  <circle cx="900" cy="250" r="320" fill="#06b6d4" opacity="0.08" filter="url(#thumb-glow)" />
+  <circle cx="600" cy="700" r="240" fill="#6366f1" opacity="0.06" filter="url(#thumb-glow)" />
+
+  <!-- LEFT: Master 3D Shield Emblem -->
+  <g transform="translate(110, 160)" filter="url(#shield-shadow)">
+    <!-- Outer Shield Frame -->
+    <path d="M 240,40 L 400,100 C 400,268 336,376 240,444 C 144,376 80,268 80,100 Z" 
+          fill="url(#shield-grad)" 
+          stroke="url(#border-grad)" 
+          stroke-width="6" 
+          stroke-linejoin="round" />
+
+    <!-- Inner Plate -->
+    <path d="M 240,64 L 380,116 C 380,258 322,354 240,416 C 158,354 100,258 100,116 Z" 
+          fill="#030612" 
+          stroke="rgba(255, 255, 255, 0.1)" 
+          stroke-width="2" />
+
+    <!-- Circuit Nodes -->
+    <g stroke="url(#border-grad)" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M 140,170 L 180,170 L 200,190" />
+      <path d="M 340,170 L 300,170 L 280,190" />
+      <path d="M 150,250 L 185,250 L 205,270" />
+      <path d="M 330,250 L 295,250 L 275,270" />
+    </g>
+    <circle cx="140" cy="170" r="4" fill="#5df0a8" />
+    <circle cx="340" cy="170" r="4" fill="#38bdf8" />
+    <circle cx="150" cy="250" r="4" fill="#5df0a8" />
+    <circle cx="330" cy="250" r="4" fill="#38bdf8" />
+
+    <!-- Left Code Bracket "<" -->
+    <path d="M 195,160 L 145,225 L 195,290" 
+          fill="none" 
+          stroke="url(#border-grad)" 
+          stroke-width="14" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          filter="url(#thumb-glow)" />
+
+    <!-- Right Code Bracket ">" -->
+    <path d="M 285,160 L 335,225 L 285,290" 
+          fill="none" 
+          stroke="url(#border-grad)" 
+          stroke-width="14" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          filter="url(#thumb-glow)" />
+
+    <!-- Central AI Core -->
+    <g transform="translate(240, 225)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="rgba(93, 240, 168, 0.4)" stroke-width="1.5" stroke-dasharray="6 4" />
+      <polygon points="0,-34 34,0 0,34 -34,0" fill="#040816" stroke="url(#border-grad)" stroke-width="4" filter="url(#thumb-glow)" />
+      <!-- Lock Keyhole -->
+      <path d="M 0,-12 C -5,-12 -10,-7 -10,-2 C -10,2 -6,5 -3,6 L -6,16 L 6,16 L 3,6 C 6,5 10,2 10,-2 C 10,-7 5,-12 0,-12 Z" fill="#5df0a8" />
+    </g>
+  </g>
+
+  <!-- RIGHT: Typography & Hackathon Presentation -->
+  <g transform="translate(570, 175)">
+    <!-- Hackathon Track Pill -->
+    <g>
+      <rect x="0" y="0" width="310" height="34" rx="17" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.35)" />
+      <circle cx="18" cy="17" r="4" fill="#5df0a8" filter="url(#thumb-glow)" />
+      <text x="32" y="22" fill="#5df0a8" class="font-mono" font-size="12" font-weight="700" letter-spacing="1.5">#BUILDHYBRIDAI 2026 SUBMISSION</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="112" class="font-display" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1">DevShield</text>
+    <text x="290" y="112" class="font-display" font-size="58" font-weight="800" fill="url(#accent-text)" letter-spacing="-1">Hybrid AI</text>
+
+    <!-- Tagline -->
+    <text x="0" y="165" class="font-sans" font-size="22" font-weight="600" fill="#cbd5e1">
+      Autonomous Zero-Egress Code Security
+    </text>
+    <text x="0" y="196" class="font-sans" font-size="16" font-weight="400" fill="#94a3b8">
+      Chrome Gemini Nano On-Device • Firebase AI Logic Cloud Escalation
+    </text>
+
+    <!-- 4 Value Proposition Cards -->
+    <g transform="translate(0, 230)">
+      <!-- Card 1: 0 Bytes Egress -->
+      <g transform="translate(0, 0)">
+        <rect width="260" height="64" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(93, 240, 168, 0.25)" />
+        <text x="18" y="26" class="font-mono" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">DATA PRIVACY</text>
+        <text x="18" y="48" class="font-display" font-size="15" font-weight="700" fill="#5df0a8">0 Bytes Egress (Air-Gapped)</text>
+      </g>
+
+      <!-- Card 2: Inference Speed -->
+      <g transform="translate(280, 0)">
+        <rect width="260" height="64" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(56, 189, 248, 0.25)" />
+        <text x="18" y="26" class="font-mono" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">LOCAL SILICON</text>
+        <text x="18" y="48" class="font-display" font-size="15" font-weight="700" fill="#38bdf8">Sub-Second Nano Latency</text>
+      </g>
+
+      <!-- Card 3: AST Diff Hardener -->
+      <g transform="translate(0, 80)">
+        <rect width="260" height="64" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(255, 255, 255, 0.08)" />
+        <text x="18" y="26" class="font-mono" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">INTELLIGENT FIXES</text>
+        <text x="18" y="48" class="font-display" font-size="15" font-weight="700" fill="#f1f5f9">Side-by-Side Monaco Diff</text>
+      </g>
+
+      <!-- Card 4: Compliance -->
+      <g transform="translate(280, 80)">
+        <rect width="260" height="64" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(255, 255, 255, 0.08)" />
+        <text x="18" y="26" class="font-mono" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="1">STANDARDS</text>
+        <text x="18" y="48" class="font-display" font-size="15" font-weight="700" fill="#f1f5f9">OWASP Top 10 Audits</text>
+      </g>
+    </g>
+
+    <!-- Footer Repo Badge -->
+    <g transform="translate(0, 405)">
+      <text x="0" y="20" class="font-mono" font-size="13" font-weight="600" fill="#64748b">
+        github.com/ankush-dev-eng/devshield-hybrid-ai • Apache 2.0
+      </text>
+    </g>
+  </g>
+</svg>

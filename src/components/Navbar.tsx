@@ -42,8 +42,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-[1720px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3.5">
-          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-sky-500/20 to-indigo-500/10 border border-emerald-500/30 flex items-center justify-center shadow-lg shadow-emerald-500/10 text-emerald-400 relative group">
-            <ShieldCheck className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" />
+          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-500/15 via-cyan-500/15 to-indigo-500/10 border border-emerald-500/30 flex items-center justify-center shadow-lg shadow-emerald-500/10 relative group">
+            <img 
+              src="/devshield-logo.svg" 
+              alt="DevShield Logo" 
+              className="w-7 h-7 group-hover:scale-110 transition-transform drop-shadow-[0_0_8px_rgba(93,240,168,0.7)]" 
+            />
             <div className="absolute inset-0 rounded-xl bg-emerald-400/10 filter blur-sm -z-10" />
           </div>
           <div>
