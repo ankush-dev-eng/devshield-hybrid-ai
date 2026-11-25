@@ -38,20 +38,20 @@ export const EditorPane: React.FC<EditorPaneProps> = ({
   hasFindings,
 }) => {
   return (
-    <div className="flex flex-col h-full bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+    <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl transition-all">
       {/* Editor Controls Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 bg-slate-950/80 border-b border-slate-800 text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-slate-950/70 border-b border-white/[0.08] text-xs">
         <div className="flex items-center gap-3">
           {/* Sample Snippet Selector */}
-          <div className="flex items-center gap-1.5">
-            <FileCode className="w-4 h-4 text-sky-400" />
+          <div className="flex items-center gap-2">
+            <FileCode className="w-4 h-4 text-emerald-400" />
             <select
               onChange={(e) => {
                 const sample = SAMPLE_CODES.find(s => s.id === e.target.value);
                 if (sample) onSelectSample(sample);
               }}
               defaultValue=""
-              className="bg-slate-900 text-slate-200 border border-slate-700 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:border-sky-500"
+              className="bg-slate-900/90 text-slate-200 border border-white/[0.1] rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-emerald-500/50 shadow-inner"
             >
               <option value="" disabled>Load Vulnerable Sample...</option>
               {SAMPLE_CODES.map(sample => (
@@ -66,7 +66,7 @@ export const EditorPane: React.FC<EditorPaneProps> = ({
           <select
             value={language}
             onChange={(e) => onLanguageChange(e.target.value)}
-            className="bg-slate-900 text-slate-300 border border-slate-700 rounded-lg px-2 py-1 text-xs focus:outline-none"
+            className="bg-slate-900/90 text-slate-300 border border-white/[0.1] rounded-xl px-2.5 py-1.5 text-xs focus:outline-none focus:border-emerald-500/50 shadow-inner font-mono"
           >
             <option value="javascript">JavaScript</option>
             <option value="typescript">TypeScript</option>
@@ -80,10 +80,10 @@ export const EditorPane: React.FC<EditorPaneProps> = ({
           <button
             onClick={onSanitizeSecrets}
             disabled={!hasFindings}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition ${
               hasFindings
-                ? 'bg-amber-600/20 text-amber-300 border border-amber-600/40 hover:bg-amber-600/30'
-                : 'text-slate-500 bg-slate-900/50 cursor-not-allowed border border-slate-800'
+                ? 'bg-amber-500/15 text-amber-300 border border-amber-500/40 hover:bg-amber-500/25 shadow-sm'
+                : 'text-slate-500 bg-slate-950/40 cursor-not-allowed border border-white/[0.04]'
             }`}
             title="Redact detected secrets and credentials on-device without cloud egress"
           >
@@ -94,71 +94,65 @@ export const EditorPane: React.FC<EditorPaneProps> = ({
           {/* Cloud Escalation Button */}
           <button
             onClick={onEscalateCloud}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-sky-600/20 text-sky-300 border border-sky-600/40 hover:bg-sky-600/30 transition"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/40 hover:bg-sky-500/25 transition shadow-sm"
             title="Escalate to Cloud Gemini for automated unit test generation and deep refactoring"
           >
-            <CloudUpload className="w-3.5 h-3.5" />
+            <CloudUpload className="w-3.5 h-3.5 text-sky-400" />
             <span>Cloud Tests</span>
           </button>
 
-          {/* Run Hybrid Scan Button */}
+          {/* Run Scan Button */}
           <button
             onClick={onRunScan}
             disabled={isScanning}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/20 transition disabled:opacity-60"
+            className={`flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold transition shadow-lg ${
+              isScanning
+                ? 'bg-slate-800 text-slate-400 cursor-wait'
+                : 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0'
+            }`}
           >
-            {isScanning ? (
-              <>
-                <Sparkles className="w-3.5 h-3.5 animate-spin" />
-                <span>Auditing...</span>
-              </>
-            ) : (
-              <>
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Audit Code</span>
-              </>
-            )}
+            <Play className={`w-3.5 h-3.5 fill-current ${isScanning ? 'animate-spin' : ''}`} />
+            <span>{isScanning ? 'Auditing...' : 'Audit Code'}</span>
           </button>
 
-          {/* Reset */}
+          {/* Reset Button */}
           <button
             onClick={onReset}
-            className="p-1.5 text-slate-400 hover:text-white bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 transition"
-            title="Reset code"
+            className="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-white/[0.06] border border-transparent hover:border-white/[0.08] transition"
+            title="Reset code to default"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
 
-      {/* Monaco Code Editor */}
-      <div className="flex-1 min-h-[420px]">
+      {/* Code Editor Container */}
+      <div className="relative flex-1 min-h-[460px]">
         <Editor
           height="100%"
           language={language}
           value={code}
-          theme="vs-dark"
           onChange={(val) => onChange(val || '')}
+          theme="vs-dark"
           options={{
+            minimap: { enabled: false },
             fontSize: 13,
             lineNumbers: 'on',
-            minimap: { enabled: false },
             scrollBeyondLastLine: false,
-            wordWrap: 'on',
             automaticLayout: true,
             tabSize: 2,
-            fontFamily: "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+            fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+            fontLigatures: true,
+            renderLineHighlight: 'all',
+            padding: { top: 14, bottom: 14 },
           }}
         />
-      </div>
 
-      {/* Editor Footer Status */}
-      <div className="px-4 py-1.5 bg-slate-950 text-[11px] text-slate-500 border-t border-slate-800 flex items-center justify-between">
-        <span>Lines: {code.split('\n').length} | Characters: {code.length}</span>
-        <span className="flex items-center gap-1">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          Monaco VS Code Editor Engine
-        </span>
+        {/* Floating Privacy Badge Overlay */}
+        <div className="absolute bottom-3 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/85 backdrop-blur-md border border-white/[0.08] text-[11px] font-mono text-emerald-400 shadow-xl pointer-events-none">
+          <Sparkles className="w-3 h-3 text-emerald-400" />
+          <span>DevShield Protected • Zero Egress</span>
+        </div>
       </div>
     </div>
   );

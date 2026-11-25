@@ -149,7 +149,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#02040a] text-slate-100 flex flex-col font-sans relative selection:bg-emerald-500/30 selection:text-emerald-200">
+      {/* Background Ambient Glow & Grid Layer */}
+      <div className="cyber-bg" />
+
       {/* Top Navbar */}
       <Navbar
         inferenceMode={inferenceMode}
@@ -168,7 +171,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-4 flex flex-col">
+      <main className="flex-1 max-w-[1720px] w-full mx-auto p-4 md:p-6 space-y-4 flex flex-col relative z-10">
         {/* Telemetry Status Bar with OWASP Score */}
         <SecurityTelemetry
           telemetry={telemetry}
@@ -212,8 +215,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-3 text-center text-xs text-slate-500">
-        <span>DevShield • Built for #BuildHybridAI 2026 • Firebase AI Logic Hybrid Inference (Gemini Nano & Cloud)</span>
+      <footer className="border-t border-white/[0.06] bg-[#02040a]/80 backdrop-blur-md px-6 py-3.5 text-center text-xs text-slate-500 relative z-10">
+        <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[11px]">
+          <span>DevShield • Built for #BuildHybridAI 2026</span>
+          <span className="text-emerald-400/80">Firebase AI Logic (Gemini Nano & Cloud) • App Check • Remote Config</span>
+          <span>Open Source Apache 2.0</span>
+        </div>
       </footer>
 
       {/* Modals */}
