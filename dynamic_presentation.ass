@@ -1,0 +1,56 @@
+[Script Info]
+Title: DevShield Hybrid AI Dynamic Presentation
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: BottomSub,Segoe UI,24,&H00FFFFFF,&H0000FFFF,&H00050811,&HB0050811,-1,0,0,0,100,100,0.5,0,4,1.5,0,2,24,24,34,1
+Style: TopHUD,Segoe UI,20,&H00FFFFFF,&H0000FFFF,&H00050811,&HD8080E1E,-1,0,0,0,100,100,0.4,0,4,2,0,9,36,48,42,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+; --- INTRO CARD (00:00 - 08.63) ---
+Dialogue: 0,0:00:00.60,0:00:08.40,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}OVERVIEW - HYBRID SECURITY\N{\c&HFFFFFF&\fs22\b1}DEVSHIELD HYBRID AI\N{\c&HB8A394&\fs14\b0}Zero-Egress On-Device Code Security Auditor
+Dialogue: 0,0:00:00.50,0:00:04.50,BottomSub,,0,0,0,,Welcome to DevShield, an autonomous zero-egress code security auditor
+Dialogue: 0,0:00:04.50,0:00:08.50,BottomSub,,0,0,0,,built for the Build Hybrid AI 2026 hackathon.
+
+; --- LIVE SCREENCAST: STEP 1 REPOSITORY SELECTION ---
+Dialogue: 0,0:00:09.00,0:00:18.00,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 1/7 - AIR-GAPPED REPO\N{\c&HFFFFFF&\fs22\b1}SELECT TARGET CODEBASE\N{\c&HB8A394&\fs14\b0}Inspect vulnerable Node.js / Python repository on local silicon
+Dialogue: 0,0:00:10.13,0:00:14.20,BottomSub,,0,0,0,,DevShield uses Chrome Gemini Nano via Firebase AI Logic
+Dialogue: 0,0:00:14.20,0:00:18.50,BottomSub,,0,0,0,,to scan proprietary code on-device with zero data egress.
+
+; --- LIVE SCREENCAST: STEP 2 GEMINI NANO AUDIT ---
+Dialogue: 0,0:00:18.50,0:00:27.00,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 2/7 - CHROME GEMINI NANO\N{\c&HFFFFFF&\fs22\b1}RUN ZERO-EGRESS AST AUDIT\N{\c&HB8A394&\fs14\b0}Local silicon scans code for OWASP Top 10 vulnerabilities
+Dialogue: 0,0:00:18.50,0:00:24.00,BottomSub,,0,0,0,,It instantly detects hardcoded payment keys and SQL injection in milliseconds.
+
+; --- LIVE SCREENCAST: STEP 3 AST MITIGATION ---
+Dialogue: 0,0:00:27.00,0:00:36.00,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 3/7 - AST HARDENING\N{\c&HFFFFFF&\fs22\b1}ONE-CLICK MITIGATION\N{\c&HB8A394&\fs14\b0}Remediate SQL injection & exposed secrets with automated AST transform
+Dialogue: 0,0:00:27.63,0:00:31.50,BottomSub,,0,0,0,,Applying hardened fixes eliminates every vulnerability,
+Dialogue: 0,0:00:31.50,0:00:36.00,BottomSub,,0,0,0,,boosting the security health score to one hundred with full OWASP compliance.
+
+; --- LIVE SCREENCAST: STEP 4 MONACO DIFF ---
+Dialogue: 0,0:00:36.50,0:00:46.50,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 4/7 - MONACO DIFF\N{\c&HFFFFFF&\fs22\b1}SIDE-BY-SIDE DIFF INSPECTOR\N{\c&HB8A394&\fs14\b0}Review original code vs hardened AST mitigations in Monaco editor
+Dialogue: 0,0:00:37.13,0:00:41.50,BottomSub,,0,0,0,,The interactive Monaco visual diff inspector lets developers compare
+Dialogue: 0,0:00:41.50,0:00:46.50,BottomSub,,0,0,0,,vulnerable code with automated AST-hardened security mitigations side by side.
+
+; --- LIVE SCREENCAST: STEP 5 COMPLIANCE REPORT ---
+Dialogue: 0,0:00:47.00,0:00:56.50,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 5/7 - COMPLIANCE AUDIT\N{\c&HFFFFFF&\fs22\b1}OWASP TOP 10 AUDIT REPORT\N{\c&HB8A394&\fs14\b0}Generate executive compliance certification • Markdown & JSON export
+Dialogue: 0,0:00:47.63,0:00:51.80,BottomSub,,0,0,0,,DevShield generates executive OWASP Top 10 compliance reports
+Dialogue: 0,0:00:51.80,0:00:56.50,BottomSub,,0,0,0,,with one-click export to Markdown and JSON for audit certification.
+
+; --- LIVE SCREENCAST: STEP 6 SECRET REDACTION ---
+Dialogue: 0,0:00:57.00,0:01:07.00,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 6/7 - DATA LOSS PREVENTION\N{\c&HFFFFFF&\fs22\b1}ON-DEVICE SECRET REDACTION\N{\c&HB8A394&\fs14\b0}Mask sensitive AWS keys and JWT signing secrets before network transit
+Dialogue: 0,0:00:57.63,0:01:02.50,BottomSub,,0,0,0,,When sensitive credentials like AWS keys and JWT tokens are detected,
+Dialogue: 0,0:01:02.50,0:01:07.50,BottomSub,,0,0,0,,DevShield redacts them on-device before any external communication.
+
+; --- LIVE SCREENCAST: STEP 7 CLOUD GEMINI ESCALATION ---
+Dialogue: 0,0:01:08.00,0:01:22.00,TopHUD,,0,0,0,,{\c&HF8BD38&\fs14\b1}STEP 7/7 - FIREBASE APP CHECK\N{\c&HFFFFFF&\fs22\b1}CLOUD GEMINI TEST ESCALATION\N{\c&HB8A394&\fs14\b0}Escalate sanitized payloads to generate automated security regression suites
+Dialogue: 0,0:01:08.63,0:01:13.00,BottomSub,,0,0,0,,Only sanitized payloads are escalated to Firebase Cloud Gemini
+Dialogue: 0,0:01:13.00,0:01:18.00,BottomSub,,0,0,0,,with App Check attestation, generating automated regression test suites.
+
+; --- OUTRO CARD (84.74 - 94.20) ---
+Dialogue: 0,0:01:25.00,0:01:34.00,TopHUD,,0,0,0,,{\c&H34D399&\fs14\b1}AUDIT COMPLETE - 100% SECURE\N{\c&HFFFFFF&\fs22\b1}DEVSHIELD HYBRID AI\N{\c&HB8A394&\fs14\b0}Zero Egress Privacy • Cloud Intelligence • Built for #BuildHybridAI 2026
+Dialogue: 0,0:01:25.00,0:01:29.40,BottomSub,,0,0,0,,DevShield combines the privacy of on-device Gemini Nano
+Dialogue: 0,0:01:29.40,0:01:34.20,BottomSub,,0,0,0,,with the power of Firebase Cloud. Fast, private, and secure.
